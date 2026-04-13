@@ -1,0 +1,77 @@
+SURROGATE MODEL RESULTS SUMMARY
+Benzene/Toluene Distillation - Peng-Robinson EOS
+Dataset: 1408 rows  |  Train: 1126  |  Test: 282
+
+=================================================================
+Model                  Target        MAE     RMSE       R2
+=================================================================
+Linear Regression      xD         0.0818   0.0950   0.8027
+Linear Regression      xB         0.0808   0.0943   0.7926
+Linear Regression      QC_kW    295.8075 398.8777   0.9673
+Linear Regression      QR_kW    330.3015 445.1366   0.9648
+-----------------------------------------------------------------
+Random Forest          xD         0.1466   0.1808   0.2853
+Random Forest          xB         0.1382   0.1755   0.2822
+Random Forest          QC_kW    146.5683 192.6924   0.9924
+Random Forest          QR_kW    167.0623 226.6056   0.9909
+-----------------------------------------------------------------
+XGBoost                xD         0.0190   0.0267   0.9844
+XGBoost                xB         0.0192   0.0255   0.9849
+XGBoost                QC_kW    191.0768 251.9623   0.9870
+XGBoost                QR_kW    223.6830 297.5500   0.9843
+-----------------------------------------------------------------
+ANN (MLP)              xD         0.0082   0.0106   0.9976
+ANN (MLP)              xB         0.0084   0.0107   0.9974
+ANN (MLP)              QC_kW     74.8064  92.0150   0.9983
+ANN (MLP)              QR_kW     79.8313 103.0878   0.9981
+-----------------------------------------------------------------
+
+MEAN R2 PER MODEL (Test Set):
+  ANN (MLP)              Test R²=0.9978  Train R²=0.9988  Gap=0.0010
+  XGBoost                Test R²=0.9851  Train R²=0.9998  Gap=0.0147
+  Linear Regression      Test R²=0.8818  Train R²=0.8755  Gap=-0.0063
+  Random Forest          Test R²=0.6377  Train R²=0.8103  Gap=0.1726
+
+BEST MODEL: ANN (MLP)  (Mean R2 = 0.9978)
+
+SAMPLE PREDICTIONS vs ACTUAL (ANN (MLP)):
+
+  xD:
+    actual=0.6867  pred=0.7042  err=-0.0175
+    actual=0.9969  pred=0.9999  err=-0.0030
+    actual=0.5372  pred=0.5487  err=-0.0115
+    actual=0.5438  pred=0.5364  err=0.0073
+    actual=0.9660  pred=0.9450  err=0.0210
+    actual=0.5630  pred=0.5560  err=0.0069
+    actual=0.8066  pred=0.7918  err=0.0149
+    actual=0.5544  pred=0.5502  err=0.0042
+
+  xB:
+    actual=0.9980  pred=1.0031  err=-0.0051
+    actual=0.8584  pred=0.8605  err=-0.0021
+    actual=0.9838  pred=0.9909  err=-0.0070
+    actual=0.9980  pred=0.9937  err=0.0043
+    actual=0.9594  pred=0.9189  err=0.0405
+    actual=0.9818  pred=0.9754  err=0.0064
+    actual=0.9980  pred=1.0026  err=-0.0046
+    actual=0.9413  pred=0.9449  err=-0.0036
+
+  QC_kW:
+    actual=7392.9221  pred=7440.4538  err=-47.5317
+    actual=7300.2586  pred=7363.6019  err=-63.3433
+    actual=5228.8475  pred=5214.3017  err=14.5458
+    actual=8482.1884  pred=8598.4615  err=-116.2731
+    actual=7457.9872  pred=7527.1720  err=-69.1848
+    actual=7243.5837  pred=7172.1244  err=71.4593
+    actual=10280.2266  pred=10329.1759  err=-48.9493
+    actual=5009.4945  pred=5033.0702  err=-23.5757
+
+  QR_kW:
+    actual=7991.6181  pred=8122.9397  err=-131.3216
+    actual=8223.1800  pred=8278.3807  err=-55.2007
+    actual=5938.3788  pred=5871.6983  err=66.6805
+    actual=8951.2906  pred=9055.2621  err=-103.9715
+    actual=8150.3880  pred=8120.6292  err=29.7588
+    actual=7793.3141  pred=7719.5958  err=73.7183
+    actual=11464.0917  pred=11642.1409  err=-178.0492
+    actual=5326.9008  pred=5334.6116  err=-7.7108
